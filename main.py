@@ -53,3 +53,27 @@ else:
     print()
     print(status)
 """
+# code model - 3
+"""
+import random
+
+
+no_friends = int(input('Enter the number of friends joining (including you):\n'))
+if no_friends <= 0:
+    print('\nNo one is joining for the party')
+else:
+    print('\nEnter the name of every friend (including you), each on a new line:')
+    friends_list = [input() for _ in range(no_friends)]
+    bill_value = int(input('\nEnter the total bill value:\n'))
+    lucky_feature = input('\nDo you want to use the "Who is lucky?" feature? Write Yes/No:\n')
+    if lucky_feature == 'Yes':
+        lucky = random.choice(friends_list)
+        no_friends -= 1
+        print(f'\n{lucky} is the lucky one!')
+        friends_bill_split = dict.fromkeys(friends_list, round(bill_value / no_friends, 2))
+        friends_bill_split[lucky] = 0
+    else:
+        print('\nNo one is going to be lucky')
+        friends_bill_split = dict.fromkeys(friends_list, round(bill_value / no_friends, 2))
+    print(friends_bill_split)
+"""
