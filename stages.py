@@ -1,4 +1,4 @@
-# Stage 3/4: The Lucky One
+# Stage 4/4: Party is over
 import random
 
 
@@ -13,7 +13,8 @@ else:
     if lucky_option == "Yes":
         lucky = random.choice(people)
         print(f"\n{lucky} is the lucky one!")
+        bill = {i: round(bill_value / (no_people - 1), 2) if i != lucky else 0 for i in people}
     else:
         print("\nNo one is going to be lucky")
-    # bill = dict.fromkeys(people, round(bill_value / no_people, 2))
-    # print("\n", bill, sep="")
+        bill = dict.fromkeys(people, round(bill_value / no_people, 2))
+    print("\n", bill, sep="")
